@@ -1,0 +1,6 @@
+---
+# packaging.yml
+- hosts: all
+  roles:
+    - common
+    - packaging

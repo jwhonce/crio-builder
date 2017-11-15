@@ -1,0 +1,4 @@
+---
+# file: roles/packaging/tasks/main.yml
+- import_tasks: repositories.yml
+- import_tasks: packages.yml

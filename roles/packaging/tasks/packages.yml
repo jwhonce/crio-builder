@@ -1,0 +1,27 @@
+---
+# file:           roles/packaging/tasks/packages.yml
+- name:           be sure have rpm macros
+  copy:
+    src:          '{{ role_path }}/files/rpmmacros'
+    dest:         /root/.rpmmacros
+    backup:       yes
+
+- name:           be sure rhpkg is installed
+  yum:
+    name:         rhpkg
+    state:        present
+
+- name:           be sure git is installed
+  yum:
+    name:         git
+    state:        present
+
+- name:           be sure brew is installed
+  yum:
+    name:         brew
+    state:        present
+
+- name:           be sure spectool is installed
+  yum:
+    name:         rpmdevtools
+    state:        present

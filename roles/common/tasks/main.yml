@@ -1,0 +1,17 @@
+---
+# file:                 roles/common/tasks/main.yml
+
+- name:                 obtain libra public key
+  shell:                ssh-keygen -y -f ~/.ssh/libra.pem
+  register:             libra_ssh_pubkey
+  changed_when:         False
+  delegate_to:          localhost
+
+- name:                 unwrap libra public key
+  set_fact:
+    libra_ssh_pubkey: "{{ libra_ssh_pubkey.stdout }}"
+
+- name:                 be sure libra authorized_key in place
+  authorized_key:
+    user:               root
+    key:                "{{ libra_ssh_pubkey }}"

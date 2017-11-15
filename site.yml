@@ -1,0 +1,5 @@
+---
+# site.yml
+# ansible all -i "localhost,"
+- import_playbook: packaging.yml
+- import_playbook: kerberos.yml

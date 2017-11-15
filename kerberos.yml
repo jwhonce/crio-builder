@@ -1,0 +1,6 @@
+---
+# kerberos.yml
+- hosts: all
+  roles:
+    - common
+    - kerberos

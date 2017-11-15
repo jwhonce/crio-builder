@@ -1,0 +1,42 @@
+---
+# file:           roles/packaging/tasks/repositories.yml
+- name:           Add RCM repositories (RPMs)
+  yum_repository:
+    name:         rcm-tools-rhel-7-workstation-rpms
+    description:  RCM Tools for Red Hat Enterprise Linux $releasever Workstation (RPMs)
+    file:         rcm-tools-rhel-7-workstation
+    baseurl:      http://download.devel.redhat.com/rel-eng/RCMTOOLS/latest-RCMTOOLS-2-RHEL-7/compose/Workstation/$basearch/os/
+    enabled:      yes
+    gpgcheck:     yes
+    gpgkey:       http://download.devel.redhat.com/rel-eng/RCMTOOLS/RPM-GPG-KEY-rcminternal
+
+- name:           Add RCM repositories (Source RPMs)
+  yum_repository:
+    name:         rcm-tools-rhel-7-workstation-source-rpms
+    description:  RCM Tools for Red Hat Enterprise Linux $releasever Workstation (Source RPMs)
+    file:         rcm-tools-rhel-7-workstation
+    baseurl:      http://download.devel.redhat.com/rel-eng/RCMTOOLS/latest-RCMTOOLS-2-RHEL-7/compose/Workstation/source/tree/
+    enabled:      no
+    gpgcheck:     yes
+    gpgkey:       http://download.devel.redhat.com/rel-eng/RCMTOOLS/RPM-GPG-KEY-rcminternal
+
+# Needed for EPEL packages, for example tito
+- name:           Add RCM repositories Optional (RPMs)
+  yum_repository:
+    name:         rcm-tools-rhel-7-workstation-optional-rpms
+    description:  RCM Tools for Red Hat Enterprise Linux $releasever Workstation - Optional (RPMs)
+    file:         rcm-tools-rhel-7-workstation
+    baseurl:      http://download.devel.redhat.com/rel-eng/RCMTOOLS/latest-RCMTOOLS-2-RHEL-7/compose/Workstation-optional/$basearch/os/
+    enabled:      yes
+    gpgcheck:     yes
+    gpgkey:       http://download.devel.redhat.com/rel-eng/RCMTOOLS/RPM-GPG-KEY-rcminternal
+
+- name:           Add RCM repositories Optional (Source RPMs)
+  yum_repository:
+    name:         rcm-tools-rhel-7-workstation-optional-source-rpms
+    description:  RCM Tools for Red Hat Enterprise Linux $releasever Workstation - Optional (Source RPMs)
+    file:         rcm-tools-rhel-7-workstation
+    baseurl:      http://download.devel.redhat.com/rel-eng/RCMTOOLS/latest-RCMTOOLS-2-RHEL-7/compose/Workstation-optional/source/tree/
+    enabled:      no
+    gpgcheck:     yes
+    gpgkey:       http://download.devel.redhat.com/rel-eng/RCMTOOLS/RPM-GPG-KEY-rcminternal

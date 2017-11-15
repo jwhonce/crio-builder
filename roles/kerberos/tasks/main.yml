@@ -1,0 +1,12 @@
+---
+# file:     roles/kerberos/tasks/main.yml
+- name:     be sure kerberos Red Hat configuration in place
+  copy:
+    src:    '{{ role_path }}/files/krb5.conf'
+    dest:   /etc/krb5.conf
+    backup: yes
+
+- name:     be sure kerberos commands installed
+  yum:
+    name:   krb5-workstation
+    state:  present
